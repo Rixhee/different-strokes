@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ArtworkCard } from "@/components/artwork-card";
+import { MarketNotice } from "@/components/market-notice";
 import { artworks } from "@/data/artworks";
 import { site, studioHero, artistPortrait, canonical } from "@/data/site";
 
@@ -48,6 +49,7 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-paper">
+      <MarketNotice />
       <SiteHeader />
 
       <main>

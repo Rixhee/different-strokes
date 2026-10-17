@@ -19,6 +19,9 @@ export function SiteFooter() {
             <Link to="/works" className="transition-colors hover:text-paper">
               Works
             </Link>
+            <Link to="/high-point-market" className="transition-colors hover:text-paper">
+              Exhibitions
+            </Link>
             <Link to="/catalogues" className="transition-colors hover:text-paper">
               Catalogues
             </Link>

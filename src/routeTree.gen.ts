@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as HighPointMarketRouteImport } from './routes/high-point-market'
 import { Route as CataloguesIndexRouteImport } from './routes/catalogues.index'
 import { Route as CataloguesYearRouteImport } from './routes/catalogues.$year'
 import { Route as WorksIndexRouteImport } from './routes/works.index'
@@ -30,6 +31,11 @@ const AboutRoute = AboutRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HighPointMarketRoute = HighPointMarketRouteImport.update({
+  id: '/high-point-market',
+  path: '/high-point-market',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CataloguesIndexRoute = CataloguesIndexRouteImport.update({
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/high-point-market': typeof HighPointMarketRoute
   '/catalogues/$year': typeof CataloguesYearRoute
   '/works/$slug': typeof WorksSlugRoute
   '/catalogues/': typeof CataloguesIndexRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/high-point-market': typeof HighPointMarketRoute
   '/catalogues/$year': typeof CataloguesYearRoute
   '/works/$slug': typeof WorksSlugRoute
   '/catalogues': typeof CataloguesIndexRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/high-point-market': typeof HighPointMarketRoute
   '/catalogues/$year': typeof CataloguesYearRoute
   '/works/$slug': typeof WorksSlugRoute
   '/catalogues/': typeof CataloguesIndexRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/high-point-market'
     | '/catalogues/$year'
     | '/works/$slug'
     | '/catalogues/'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/high-point-market'
     | '/catalogues/$year'
     | '/works/$slug'
     | '/catalogues'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/high-point-market'
     | '/catalogues/$year'
     | '/works/$slug'
     | '/catalogues/'
@@ -115,6 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  HighPointMarketRoute: typeof HighPointMarketRoute
   CataloguesYearRoute: typeof CataloguesYearRoute
   WorksSlugRoute: typeof WorksSlugRoute
   CataloguesIndexRoute: typeof CataloguesIndexRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/high-point-market': {
+      id: '/high-point-market'
+      path: '/high-point-market'
+      fullPath: '/high-point-market'
+      preLoaderRoute: typeof HighPointMarketRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/catalogues/': {
@@ -179,6 +199,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  HighPointMarketRoute: HighPointMarketRoute,
   CataloguesYearRoute: CataloguesYearRoute,
   WorksSlugRoute: WorksSlugRoute,
   CataloguesIndexRoute: CataloguesIndexRoute,

@@ -23,6 +23,7 @@ from xml.sax.saxutils import escape
 STATIC_ROUTES = [
     ("/", "1.0"),
     ("/works", "0.9"),
+    ("/high-point-market", "0.9"),
     ("/catalogues", "0.6"),
     ("/about", "0.5"),
     ("/contact", "0.5"),

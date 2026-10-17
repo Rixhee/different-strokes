@@ -3,6 +3,7 @@ import { site } from "@/data/site";
 
 const links = [
   { to: "/works", label: "Works" },
+  { to: "/high-point-market", label: "Exhibitions" },
   { to: "/catalogues", label: "Catalogues" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
@@ -21,7 +22,7 @@ export function SiteHeader() {
               {site.artist}
             </span>
           </Link>
-          <div className="flex items-center gap-5 text-sm text-stone sm:gap-9">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 min-[390px]:gap-x-4 text-[0.8125rem] text-stone sm:gap-x-9 sm:text-sm">
             {links.map((link) => (
               <Link
                 key={link.to}
